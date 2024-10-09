@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCard UserCard snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h2>
+      John Doe
+    </h2>
+    <p>
+      john.doe@example.com
+    </p>
+    <div>
+      <h3>
+        Repositories:
+      </h3>
+      <div>
+        <h4>
+          Repo1
+        </h4>
+        <p>
+          First repo
+        </p>
+        <p>
+          Created on: 2024-01-01
+        </p>
+        <p>
+          Last commit: 2024-01-10
+        </p>
+        <div>
+          <h5>
+            Last Commits:
+          </h5>
+          <ul>
+            <li>
+              Initial commit
+            </li>
+            <li>
+              Updated README
+            </li>
+            <li>
+              Fixed bugs
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

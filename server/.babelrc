@@ -1,0 +1,3 @@
+{
+  "presets": ["@babel/preset-env"] // This is necessary for transpiling ES6+ syntax
+}
