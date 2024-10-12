@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"; // Import routing components
 import Search from "./components/Search";
 import axios from "axios";
+import UserDetails from "./components/UserDetails"; // Import UserDetails component
 import "./App.css";
 
 const App = () => {
@@ -43,57 +45,74 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>GitHub User Search</h1>
-      {/* Search component for inputting the username */}
-      <Search onSearch={handleSearch} />
-      {loading && <p>Loading...</p>}{" "}
-      {/* Show loading text while fetching data */}
-      {error && <p>{error}</p>} {/* Display error message if any */}
-      {user && (
-        <div>
-          <h2>{user.name}</h2>
-          <img src={user.avatar_url} alt={user.name} width="150" />
-          <p>{user.bio}</p>
-          <p>Public Repos: {user.public_repos}</p>
-        </div>
-      )}
-      {repos.length > 0 && (
-        <div>
-          <h2>Repositories:</h2>
-          <ul>
-            {repos.map((repo, index) => (
-              <li key={index}>
-                <p>{repo.name}</p>
-                <p>Description: {repo.description}</p>
-                <p>
-                  Creation Date:{" "}
-                  {new Date(repo.created_at).toLocaleDateString()}
-                </p>
-                <p>
-                  Last Commit Date:{" "}
-                  {repo.lastCommitDate
-                    ? new Date(repo.lastCommitDate).toLocaleDateString()
-                    : "No commits"}
-                </p>
-                <p>Last 5 Commits:</p>
-                <ul>
-                  {repo.last5Commits.map((commit, commitIndex) => (
-                    <li key={commitIndex}>{commit}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <h2>Search History</h2>
-      <ul>
-        {history.map((name, index) => (
-          <li key={index}>{name}</li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <div>
+        <h1>GitHub User Search</h1>
+        {/* Search component for inputting the username */}
+        <Search onSearch={handleSearch} />
+        {loading && <p>Loading...</p>}{" "}
+        {/* Show loading text while fetching data */}
+        {error && <p>{error}</p>} {/* Display error message if any */}
+        
+        {/* Main route to display search results */}
+        <Routes>
+          <Route path="/" element={
+            <div>
+              {user && (
+                <div>
+                  <h2>{user.name}</h2>
+                  <img src={user.avatar_url} alt={user.name} width="150" />
+                  <p>{user.bio}</p>
+                  <p>Public Repos: {user.public_repos}</p>
+                  {/* Link to the user's GitHub profile */}
+                  <p>
+                    <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+                      View GitHub Profile
+                    </a>
+                  </p>
+                </div>
+              )}
+              {repos.length > 0 && (
+                <div>
+                  <h2>Repositories:</h2>
+                  <ul>
+                    {repos.map((repo, index) => (
+                      <li key={index}>
+                        <Link to={`/user/${repo.owner.login}`}>{repo.name}</Link> {/* Link to the user details */}
+                        <p>Description: {repo.description}</p>
+                        <p>
+                          Creation Date:{" "}
+                          {new Date(repo.created_at).toLocaleDateString()}
+                        </p>
+                        <p>
+                          Last Commit Date:{" "}
+                          {repo.lastCommitDate
+                            ? new Date(repo.lastCommitDate).toLocaleDateString()
+                            : "No commits"}
+                        </p>
+                        <p>Last 5 Commits:</p>
+                        <ul>
+                          {repo.last5Commits.map((commit, commitIndex) => (
+                            <li key={commitIndex}>{commit}</li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              <h2>Search History</h2>
+              <ul>
+                {history.map((name, index) => (
+                  <li key={index}>{name}</li>
+                ))}
+              </ul>
+            </div>
+          } />
+          <Route path="/user/:username" element={<UserDetails user={user} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

@@ -81,3 +81,8 @@ p {
   line-height: 1.5;
   color: #555;
 }
+
+.external-link {
+  color: blue;
+  text-decoration: underline;
+}

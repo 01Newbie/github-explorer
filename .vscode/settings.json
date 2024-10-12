@@ -2,6 +2,8 @@
     "cSpell.words": [
         "invaliduser",
         "nonexistentuser",
+        "noopener",
+        "noreferrer",
         "octocat"
     ],
     "git.ignoreLimitWarning": true

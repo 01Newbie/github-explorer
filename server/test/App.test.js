@@ -7,7 +7,7 @@ describe("GitHub API Routes", () => {
   // First test case: It should return GitHub user data and repository details for a valid username
   it("should return GitHub user data and repo details for a valid username", async () => {
     // Send a GET request to the API endpoint with a valid GitHub username
-    const response = await request(app).get("/api/users/octocat");
+    const response = await request(app).get("/api/users/01Newbie");
 
     // Expect the status code of the response to be 200 (success)
     expect(response.statusCode).toBe(200);
@@ -15,8 +15,8 @@ describe("GitHub API Routes", () => {
     // Expect the response body to have a 'userData' property
     expect(response.body).toHaveProperty("userData");
 
-    // Check if the 'userData' object has a 'login' property with the value 'octocat'
-    expect(response.body.userData).toHaveProperty("login", "octocat");
+    // Check if the 'userData' object has a 'login' property with the value '01Newbie'
+    expect(response.body.userData).toHaveProperty("login", "01Newbie");
 
     // Expect the response body to have a 'repoDetails' property
     expect(response.body).toHaveProperty("repoDetails");
