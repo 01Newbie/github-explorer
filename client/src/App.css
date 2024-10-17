@@ -1,88 +1,118 @@
-/* Body Styles */
-body {
+/* Styles for the main application container */
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
   font-family: "Arial", sans-serif;
-  background-color: #e9ecef;
-  margin: 0;
-  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Heading Styles */
+/* Style for headings */
 h1 {
   text-align: center;
-  color: #333;
   font-size: 2.5em;
+  color: #333;
   margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
-/* Input Styles */
-input {
+/* Style for loading indicator */
+.loading-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Style for error messages */
+.error-message {
+  color: #c0392b;
+  text-align: center;
+  font-weight: bold;
+  background-color: #f8d7da;
+  border: 1px solid #c0392b;
   padding: 10px;
-  margin-right: 5px;
+  border-radius: 5px;
+}
+
+/* Style for success messages */
+.success-message {
+  color: #27ae60;
+  text-align: center;
+  font-weight: bold;
+  background-color: #d4edda;
+  border: 1px solid #27ae60;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+/* Style for results container */
+.results-container {
+  margin-top: 20px;
+}
+
+/* Style for user info section */
+.user-info {
   border: 1px solid #ccc;
+  padding: 15px;
   border-radius: 5px;
-  transition: border-color 0.3s ease;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
 }
 
-input:focus {
-  border-color: #007bff;
-  outline: none;
+.user-info:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Button Styles */
-button {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
+/* Style for repository info */
+.repos-info {
+  border: 1px solid #ccc;
+  padding: 15px;
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #ffffff;
+  margin-top: 20px;
+  transition: box-shadow 0.3s;
 }
 
-button:hover {
-  background-color: #0056b3;
+.repos-info:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Container Styles */
-div {
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 600px;
-}
-
-/* Image Styles */
-img {
-  border-radius: 50%;
+/* Style for individual repo items */
+.repo-item {
   margin-bottom: 15px;
-  width: 100px;
-  height: 100px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* List Styles */
-ul {
-  padding-left: 20px;
+.repo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Link Styles */
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Paragraph Styles */
-p {
-  line-height: 1.5;
-  color: #555;
-}
-
+/* Style for external links */
 .external-link {
-  color: blue;
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.external-link:hover {
   text-decoration: underline;
+  color: #1a5276;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 2em;
+  }
 }
