@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-loading-icons": "^1.1.0",
@@ -49,5 +50,10 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "supertest": "^7.0.0"
-  }
+  },
+  "description": "## Description",
+  "main": "jest.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
